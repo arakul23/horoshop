@@ -124,6 +124,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $roles = ['ROLE_USER'];
 
         $role = Role::tryFrom($this->role);
+
         if ($role !== null) {
             $roles[] = $role->toSecurityRole();
         }
@@ -133,10 +134,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getUserIdentifier(): string
     {
-        return (string) $this->id;
-    }
-
-    public function eraseCredentials(): void
-    {
+        return $this->id;
     }
 }

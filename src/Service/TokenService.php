@@ -36,11 +36,13 @@ class TokenService
         [$jsonPayload, $signature] = $parts;
 
         $expectedSignature = hash_hmac('sha256', $jsonPayload, $this->tokenSecret);
+
         if (!hash_equals($expectedSignature, $signature)) {
             throw new \RuntimeException('Invalid token signature');
         }
 
         $payload = json_decode(base64_decode($jsonPayload, true), true);
+
         if (!is_array($payload) || !isset($payload['sub'], $payload['exp'])) {
             throw new \RuntimeException('Invalid token payload');
         }
