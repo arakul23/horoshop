@@ -1,6 +1,6 @@
 Test task for the position of a software engineer.
 
-## Install
+### Install
 
 ```
 docker compose build
@@ -21,5 +21,5 @@ Define your ```APP_TOKEN_SECRET``` in the ```.env```.
 
 Use this secret to sign your tokens for API requests.  
 
-Run tests:  
+### Tests  
 ```docker compose exec -it php php bin/phpunit```
