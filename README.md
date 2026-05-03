@@ -17,7 +17,7 @@ After launch, it may take 10-15 seconds for the migration and dump to complete.
 ### Authentication:  
 The application uses Bearer Token authentication.
 
-Define your APP_TOKEN_SECRET in the generated .env.
+Define your ```APP_TOKEN_SECRET``` in the ```.env```.
 
 Use this secret to sign your tokens for API requests.  
 
