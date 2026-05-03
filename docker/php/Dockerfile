@@ -22,7 +22,6 @@ WORKDIR /var/www/html
 COPY ./docker/php/docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-# Указываем ENTRYPOINT
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["php-fpm"]

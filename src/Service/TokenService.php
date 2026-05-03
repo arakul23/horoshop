@@ -9,8 +9,7 @@ class TokenService
     const int TOKEN_EXPIRATION_TIME = 3600;
 
     public function __construct(readonly private string $tokenSecret)
-    {
-    }
+    {}
 
     public function generateToken(string $id): string {
         $payload = [

@@ -29,8 +29,7 @@ final class UserController extends AbstractController
         readonly private TokenService                $tokenService,
         readonly private EntityManagerInterface      $entityManager,
         readonly private UserPasswordHasherInterface $userPasswordHasher
-    )
-    {
+    ) {
     }
 
     #[Route('/{user}', name: 'get', methods: ['GET'])]

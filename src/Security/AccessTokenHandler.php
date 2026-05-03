@@ -12,7 +12,7 @@ readonly class AccessTokenHandler implements AccessTokenHandlerInterface
 {
     public function __construct(
         private UserRepository $userRepository,
-        private TokenService   $tokenService
+        private TokenService   $tokenService,
     ) {
     }
 

@@ -12,12 +12,14 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 final class UserVoter extends Voter
 {
     public const string VIEW = 'USER_VIEW';
+
     public const string EDIT = 'USER_EDIT';
+
     public const string DELETE = 'USER_DELETE';
 
     protected function supports(string $attribute, mixed $subject): bool
     {
-        return in_array($attribute, [self::VIEW, self::EDIT, self::DELETE], true)
+        return in_array($attribute, [self::VIEW, self::EDIT, self::DELETE,], true)
             && $subject instanceof User;
     }
 
