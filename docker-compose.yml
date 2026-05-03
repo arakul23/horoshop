@@ -40,6 +40,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./docker/mysql/dump.sql:/docker-entrypoint-initdb.d/dump.sql:ro
 
 volumes:
   mysql_data:

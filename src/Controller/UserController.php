@@ -39,10 +39,9 @@ final class UserController extends AbstractController
     {
         return new JsonResponse(
             [
-                'id' => $user->getId(),
                 'login' => $user->getLogin(),
                 'phone' => $user->getPhone(),
-                'role' => $user->getRole(),
+                'password' => $user->getPassword(),
             ],
             Response::HTTP_OK);
     }
@@ -68,7 +67,15 @@ final class UserController extends AbstractController
             throw new ConflictHttpException('Login already exists', $e);
         }
 
-        return new JsonResponse(['id' => $user->getId(), 'token' => $token], Response::HTTP_CREATED);
+        return new JsonResponse(
+            [
+                'id' => $user->getId(),
+                'login' => $user->getLogin(),
+                'phone' => $user->getPhone(),
+                'password' => $user->getPassword(),
+                'token' => $token,
+            ],
+            Response::HTTP_CREATED);
     }
 
     #[Route('/{user}', name: 'update', methods: ['PUT'])]
@@ -87,12 +94,7 @@ final class UserController extends AbstractController
             throw new BadRequestHttpException('Unable to update user', $e);
         }
 
-        return $this->json([
-            'id' => $user->getId(),
-            'login' => $user->getLogin(),
-            'phone' => $user->getPhone(),
-            'role' => $user->getRole(),
-        ]);
+        return $this->json(['id' => $user->getId()]);
     }
 
     #[Route('/{user}', name: 'delete', methods: ['DELETE'])]
